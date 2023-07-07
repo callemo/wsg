@@ -1,0 +1,9 @@
+</main>
+<footer>
+</footer>
+ifdef(<`BUILD_JS_VER`>,
+	<`define(PAGE_JS_HREF, script.js?v=BUILD_JS_VER)`>,
+	<`define(PAGE_JS_HREF, script.js)`>)dnl
+<script src="PAGE_JS_HREF"></script>
+</body>
+</html>dnl

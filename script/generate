@@ -1,0 +1,24 @@
+#!/bin/sh
+set -eu
+
+prefix="${0##*/}:"
+log() { echo "$prefix" "$@" >&2; }
+fatal() { log "$@"; exit 1; }
+
+outdir=build/htdocs
+mkdir -p "$outdir"
+
+cp content/asset/style.css "$outdir"
+css_ver="$(cksum "$outdir"/style.css | cut -d ' ' -f 1)"
+[ -z "$css_ver" ] &&  fatal 'failed to compute the css file version'
+cp content/asset/script.js "$outdir"
+js_ver="$(cksum "$outdir"/script.js | cut -d ' ' -f 1)"
+[ -z "$js_ver" ] &&  fatal 'failed to compute the js file version'
+
+for i in content/*
+do
+    [ ! -f "$i" ] && continue
+    o="$outdir/${i#content/}"
+    log "writing $o"
+    m4 -DBUILD_CSS_VER="$css_ver" -DBUILD_JS_VER="$js_ver" macros "$i" >"$o"
+done

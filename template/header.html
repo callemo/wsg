@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ifdef(<`PAGE_TITLE`>, PAGE_TITLE | )SITE_NAME</title>
+ifdef(<`SITE_DESCRIPTION`>, <meta name="description" content="SITE_DESCRIPTION">)
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="icon.png">
+ifdef(<`BUILD_CSS_VER`>,
+	<`define(PAGE_CSS_HREF, style.css?v=BUILD_CSS_VER)`>,
+	<`define(PAGE_CSS_HREF, style.css)`>)dnl
+<link rel="stylesheet" href="PAGE_CSS_HREF">
+</head>
+<body>
+<div id="flash"></div>
+<header id="masthead"><a href="/" title="SITE_NAME">SITE_NAME</a></header>
+<main>dnl
