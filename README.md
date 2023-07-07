@@ -1,2 +1,3 @@
 # wsg
-Website generator
+A simple website generator for POSIX environments.
+It has no dependencies.
