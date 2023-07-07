@@ -1,0 +1,2 @@
+# wsg
+Website generator
