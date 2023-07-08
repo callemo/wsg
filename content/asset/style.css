@@ -1,1 +1,29 @@
 /* asset/style.css */
+
+html {
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 auto;
+    max-width: 40em;
+    padding: 0 16px 16px 16px;
+}
+
+body > footer {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+input,
+textarea,
+pre,
+code {
+    font-family: ui-monospace, monospace;
+    font-size: 15px;
+}
+
+#masthead {
+    margin-top: 1em;
+}

@@ -17,8 +17,9 @@ js_ver="$(cksum "$outdir"/script.js | cut -d ' ' -f 1)"
 
 for i in content/*
 do
-    [ ! -f "$i" ] && continue
-    o="$outdir/${i#content/}"
+    [ -f "$i" ] || continue
+    p="${i#content/}"
+    o="$outdir/$p"
     log "writing $o"
-    m4 -DBUILD_CSS_VER="$css_ver" -DBUILD_JS_VER="$js_ver" macros "$i" >"$o"
+    m4 -DPAGE_URL="/$p" -DBUILD_CSS_VER="$css_ver" -DBUILD_JS_VER="$js_ver" macros "$i" >"$o"
 done

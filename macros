@@ -1,7 +1,7 @@
 divert(-1)
 
-define(`SITE_NAME', `Website')
-define(`SITE_DESCRIPTION', `Website')
+define(`SITE_NAME', `Website name')
+define(`SITE_DESCRIPTION', `Website description')
 
 undefine(`__file__')
 undefine(`__gnu__')
@@ -18,7 +18,6 @@ undefine(`divnum')
 undefine(`esyscmd')
 undefine(`eval')
 undefine(`format')
-undefine(`ifelse')
 undefine(`incr')
 undefine(`index')
 undefine(`indir')
@@ -42,6 +41,7 @@ undefine(`undivert')
 
 changequote(`"', `"')
 changequote("<`", "`>")
-
+undefine(<`changequote`>)
 divert(0)dnl
 undefine(<`divert`>)dnl
+undefine(<`undefine`>)dnl
